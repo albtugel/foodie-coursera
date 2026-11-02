@@ -11,6 +11,8 @@ npm run web
 
 The course template uses Expo SDK 51. In Expo Snack, choose **v51.0.0**, then use **Import Git Repository** to import the repository root and select the Web preview. SDK 51 is available in the Snack SDK selector. Native preview needs a matching Expo Go version.
 
+[Open Foodie in Expo Snack](https://snack.expo.dev/@git/github.com/albtugel/foodie-coursera).
+
 ```sh
 npx tsc --noEmit
 npx expo export --platform web
@@ -33,6 +35,8 @@ npx expo export --platform web
 ## Validation
 
 TypeScript checking and the production web export pass. Browser checks exercised category filtering, recipe details, heart toggling, favorite-list display, empty-form validation, recipe creation, editing, persistence after reload, and deletion.
+
+The published repository also imports and launches in Expo Snack SDK 51; category filtering, recipe details, and favorites were exercised in its Web preview.
 
 The browser permission gate prevented an automated local file-upload check. The image-URL path was exercised successfully. Native iOS/Android execution has not been verified in this environment.
 
