@@ -1,12 +1,16 @@
 import { ColorValue, Platform, PlatformColor, useColorScheme } from 'react-native';
 
+function semanticColor(name: string, fallback: string): ColorValue {
+  return Platform.OS === 'ios' ? PlatformColor(name) : fallback;
+}
+
 export function useTheme() {
   const dark = useColorScheme() === 'dark';
   return {
-    background: Platform.select<ColorValue>({ ios: PlatformColor('systemBackground'), default: dark ? '#151515' : '#FFFFFF' })!,
-    surface: Platform.select<ColorValue>({ ios: PlatformColor('secondarySystemBackground'), default: dark ? '#252525' : '#F3F4F6' })!,
-    text: Platform.select<ColorValue>({ ios: PlatformColor('label'), default: dark ? '#F9FAFB' : '#202124' })!,
-    secondary: Platform.select<ColorValue>({ ios: PlatformColor('secondaryLabel'), default: dark ? '#B6B6BE' : '#52525B' })!,
+    background: semanticColor('systemBackground', dark ? '#151515' : '#FFFFFF'),
+    surface: semanticColor('secondarySystemBackground', dark ? '#252525' : '#F3F4F6'),
+    text: semanticColor('label', dark ? '#F9FAFB' : '#202124'),
+    secondary: semanticColor('secondaryLabel', dark ? '#B6B6BE' : '#52525B'),
     border: dark ? '#47474E' : '#D1D5DB',
     accent: '#F59E0B',
     onAccent: '#17120B',
